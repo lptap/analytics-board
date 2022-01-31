@@ -1,0 +1,79 @@
+@import "../../../../styles/mixins/breakpoints.mixins";
+@import "../../../../styles/variables";
+
+.main-view {
+  height: 100vh;
+
+  &__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #F5F7FB;
+    z-index: 4;
+
+    &--logo {
+      height: 40px;
+      width: 50px;
+      cursor: pointer;
+
+      @include respond-to('small') {
+        width: 300px;
+      }
+    }
+
+    &--inner {
+      width: 100%;
+      display: flex;
+      max-width: 1920px;
+      margin: auto;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      @include respond-to('small') {
+        padding: 25px;
+      }
+    }
+
+  }
+
+  &__wallet {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    max-width: 50%;
+
+    &--address {
+      display: flex;
+      align-items: center;
+      flex: 0 0 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: all 350ms ease-in-out;
+
+      &:hover {
+        flex-grow: 2;
+        color: $primary;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    &--disconnect {
+      opacity: 0.5;
+      transition: opacity 300ms;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+  }
+
+  &__content {
+    padding-top: 100px;
+    height: 100%;
+    max-width: 1920px;
+    margin: auto;
+  }
+}

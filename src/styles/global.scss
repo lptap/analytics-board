@@ -1,0 +1,190 @@
+@import "src/styles/variables";
+
+* {
+  transition: all 350ms;
+}
+body,
+html,
+.v-application {
+  font-family: Raleway, sans-serif;
+  color: $text-color;
+  font-size: $font-regular;
+  background-color: #F5F7FB !important;
+}
+.v-btn,
+.v-card.rounded,
+.v-text-field--rounded,
+.v-menu__content {
+  border-radius: $border-radius !important;
+}
+.v-btn {
+  &__content {
+    font-weight: 700;
+    font-size: $font-regular;
+    text-transform: initial;
+  }
+}
+
+.v-card__subtitle, .v-card__text, .v-card__title {
+  padding: 0 0 16px;
+}
+
+.v-btn--disabled {
+  opacity: 0.5 !important;
+}
+
+p {
+  margin: 0 !important;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+a {
+  color: $primary;
+}
+
+@keyframes opaqueBackdropTransition {
+  0% {
+    background-color: rgba(0, 0, 0, 0.0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes slideOutTop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInTop {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInTopBounce {
+  0% {
+    transform: translateY(-50%) scaleY(3);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(25px) scaleY(0.9);
+  }
+
+  75% {
+    transform: translateY(-10px) scaleY(0.95);
+  }
+
+  90% {
+    transform: translateY(5px) scaleY(0.985);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.font {
+  &--heading {
+    font-size: $font-lg;
+    line-height: $font-lg-line;
+    font-weight: 900;
+    font-family: 'raleway-black', sans-serif;
+  }
+  &--large {
+    font-size: $font-lg;
+    line-height: $font-lg-line;
+  }
+  &--regular {
+    font-size: $font-regular;
+    line-height: $font-regular-line;
+    font-weight: 700;
+  }
+  &--sm {
+    font-size: $font-sm;
+    line-height: $font-sm-line;
+  }
+  &--bold {
+    font-weight: 900;
+  }
+  &--light {
+    font-weight: 500;
+  }
+  &__align--right {
+    text-align: right;
+  }
+  &__align--left {
+    text-align: left;
+  }
+  &__align--center {
+    text-align: center;
+  }
+}
+
+.color {
+  &--primary {
+    color: $primary;
+  }
+  &--secondary {
+    color: $secondary;
+  }
+  &--accent {
+    color: $accent;
+  }
+  &--error {
+    color: $error;
+  }
+  &--warning {
+    color: $warning;
+  }
+  &--info {
+    color: $info;
+  }
+  &--success {
+    color: $success;
+  }
+  &--success-ligth {
+    color: $success-light;
+  }
+  &--dark {
+    color: $text-color;
+  }
+}
+
+.cancel-button {
+  border-color: #D5D6DF;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0,0,0);
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.0);
+  animation: opaqueBackdropTransition .1s ease-in-out 0s 1 forwards;
+  -webkit-animation: opaqueBackdropTransition .1s ease-in-out 0s 1 forwards;
+  -moz-animation: opaqueBackdropTransition .1s ease-in-out 0s 1 forwards;
+}

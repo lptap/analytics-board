@@ -1,0 +1,52 @@
+@import "src/styles/variables";
+
+.deposit-withdraw-modal {
+  @keyframes borderFade {
+    0% {
+      border-top: 1px solid transparent;
+    }
+    100% {
+      border-top: $border;
+    }
+  }
+
+  &__header {
+    position: relative;
+    width: 100%;
+
+    &--close {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  &__input {
+    padding: 25px;
+    background-color: white;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .text-field-disabled {
+      opacity: .5;
+    }
+
+    &--all-switch {
+      margin-top: 0 !important;
+    }
+  }
+
+  &__confirm {
+    &--inner {
+      padding: 25px;
+      animation: borderFade .6s ease-out 1s 1 forwards;
+      -webkit-animation: borderFade .2s ease-out 1s 1 forwards;
+      -moz-animation: borderFade .6s ease-out 1s 1 forwards;
+      border-top: 1px solid transparent;
+      justify-content: space-between;
+      display: flex;
+    }
+  }
+
+}

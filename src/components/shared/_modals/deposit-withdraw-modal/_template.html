@@ -1,0 +1,74 @@
+<modal-wrapper class="deposit-withdraw-modal"
+               :center="true"
+               :back-drop-close="true"
+               :escape-close="true"
+               :max-width="550"
+               @backdrop-click="closeClick"
+               @escape-click="closeClick">
+    <v-card class="deposit-withdraw-modal__content" rounded outlined elevation="10">
+        <v-card-title>
+            <div class="deposit-withdraw-modal__header">
+                {{ title }} {{ farmSummary.farmName }}
+                <v-btn small icon color="gray" class="deposit-withdraw-modal__header--close" @click="closeClick">
+                    <v-icon>mdi-close</v-icon>
+                </v-btn>
+            </div>
+        </v-card-title>
+        <div class="deposit-withdraw-modal__input">
+            <v-switch v-if="showAllButton"
+                      v-model="allChecked"
+                      class="deposit-withdraw-modal__input--all-switch"
+                      color="secondary"
+                      :disabled="confirmPrompt"
+                      @change="allCheckChanged"
+                      hide-details
+                      inset
+                      label="All"
+            ></v-switch>
+            <v-text-field
+                    v-model="value"
+                    label="Amount"
+                    type="number"
+                    :disabled="confirmPrompt || allChecked === true"
+                    v-bind:class="{'text-field-disabled': allChecked === true}"
+                    outlined
+                    rounded
+                    hide-details
+                    @keydown="filterInput"
+            />
+            <v-btn color="primary"
+                   elevation="0"
+                   :disabled="confirmPrompt || !valueValid"
+                   large
+                   height="56"
+                   @click="confirm">
+                {{ actionName }}
+            </v-btn>
+        </div>
+        <transition enter-active-class="animate__animated animate__bounceIn"
+                    leave-active-class="animate__animated animate__bounceOut" mode="out-in">
+            <div class="deposit-withdraw-modal__confirm" v-if="confirmPrompt">
+                <div class="deposit-withdraw-modal__confirm--inner">
+                    <v-btn  class="cancel-button"
+                            outlined
+                            large
+                            elevation="0"
+                            :disabled="confirmLoading"
+                            @click="closeClick">
+                        Cancel
+                    </v-btn>
+                    <v-btn color="primary"
+                           elevation="0"
+                           large
+                           :loading="confirmLoading"
+                           @click="confirm">
+                        Yes
+                    </v-btn>
+                </div>
+            </div>
+
+        </transition>
+
+    </v-card>
+</modal-wrapper>
+

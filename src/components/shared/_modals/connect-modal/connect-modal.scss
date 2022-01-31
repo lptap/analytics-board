@@ -1,0 +1,43 @@
+@import "src/styles/variables";
+@import "src/styles/mixins/breakpoints.mixins";
+
+.connect-modal {
+  &__content {
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &--metamask {
+      height: 45px;
+    }
+
+    &--coinbase {
+      height: 25px;
+    }
+
+    &--wallet-connect {
+      height: 25px;
+    }
+
+    &--intermediate {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      animation: bounceIn .2s ease-out 0s 1 forwards;
+      -webkit-animation: bounceIn .2s ease-out 0s 1 forwards;
+      -moz-animation: bounceIn .2s ease-out 0s 1 forwards;
+    }
+
+    &--error {
+      border: 2px solid $error;
+      background-color: lighten($error, 25);
+      animation: fadeIn .2s ease-out 0s 1 forwards;
+      -webkit-animation: fadeIn .2s ease-out 0s 1 forwards;
+      -moz-animation: fadeIn .2s ease-out 0s 1 forwards;
+
+    }
+  }
+}
